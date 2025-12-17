@@ -1,0 +1,20 @@
+const scene = document.querySelector('.scene');
+const message = document.querySelector('.message');
+
+function createLeaf() {
+  const leaf = document.createElement('div');
+  leaf.classList.add('leaf');
+  leaf.style.left = Math.random() * 100 + 'vw';
+  leaf.style.animationDuration = (3 + Math.random() * 3) + 's';
+  scene.appendChild(leaf);
+
+  setTimeout(() => leaf.remove(), 6000);
+}
+
+// Start falling leaves
+const leafInterval = setInterval(createLeaf, 300);
+
+// Reveal message after leaves fall
+setTimeout(() => {
+  message.classList.remove('hidden');
+}, 4500);
